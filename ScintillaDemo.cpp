@@ -23,7 +23,8 @@ CScintillaDemoApp theApp;
 
 
 #pragma warning(suppress: 26439)
-CScintillaDemoApp::CScintillaDemoApp() : m_hSciDLL(nullptr)
+CScintillaDemoApp::CScintillaDemoApp() 
+    //: m_hSciDLL(nullptr)
 {
 }
 
@@ -56,13 +57,15 @@ HMODULE CScintillaDemoApp::LoadLibraryFromApplicationDirectory(LPCTSTR lpFileNam
 
 BOOL CScintillaDemoApp::InitInstance()
 {
+    Scintilla_RegisterClasses(AfxGetInstanceHandle());
+
   //Load the scintilla dll
-  m_hSciDLL = LoadLibraryFromApplicationDirectory(_T("SciLexer.dll"));
-  if (m_hSciDLL == nullptr)
-  { 
-    AfxMessageBox(_T("Scintilla DLL is not installed, Please download the SciTE editor and copy the SciLexer.dll into this application's directory"));
-    return FALSE;
-  }
+  //m_hSciDLL = LoadLibraryFromApplicationDirectory(_T("SciLexer.dll"));
+  //if (m_hSciDLL == nullptr)
+  //{ 
+  //  AfxMessageBox(_T("Scintilla DLL is not installed, Please download the SciTE editor and copy the SciLexer.dll into this application's directory"));
+  //  return FALSE;
+  //}
 
   SetRegistryKey(_T("PJ Naughter"));
 
@@ -104,12 +107,14 @@ BOOL CScintillaDemoApp::InitInstance()
 
 int CScintillaDemoApp::ExitInstance()
 {
+    Scintilla_ReleaseResources();
+
   //Free up the Scintilla DLL
-  if (m_hSciDLL)
-  {
-    FreeLibrary(m_hSciDLL);
-    m_hSciDLL = nullptr;
-  }
+  //if (m_hSciDLL)
+  //{
+  //  FreeLibrary(m_hSciDLL);
+  //  m_hSciDLL = nullptr;
+  //}
 
   //Let the base class do its thing
   return __super::ExitInstance();

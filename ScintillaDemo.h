@@ -19,5 +19,5 @@ public:
   DECLARE_MESSAGE_MAP()
 
 //Member variables
-  HINSTANCE m_hSciDLL;
+  //HINSTANCE m_hSciDLL;
 };

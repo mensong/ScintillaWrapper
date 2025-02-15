@@ -1,16 +1,16 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScintillaDemo", "ScintillaDemo.vcxproj", "{0C36A528-8D76-462C-80FD-05E280E734E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FBE04237-9C7B-4973-9C60-505975998B39} = {FBE04237-9C7B-4973-9C60-505975998B39}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SciLexer", "scite415\scintilla\win32\SciLexer.vcxproj", "{FBE04237-9C7B-4973-9C60-505975998B39}"
 EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 1
-		SccProjectUniqueName0 = ScintillaDemo14.vcxproj
-		SccProjectName0 = \u0022$/My\u0020Code/Scintilla\u0022,\u0020CEAAAAAA
-		SccLocalPath0 = .
-		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
@@ -38,8 +38,27 @@ Global
 		{0C36A528-8D76-462C-80FD-05E280E734E9}.Unicode Release|Win32.Build.0 = Unicode Release|Win32
 		{0C36A528-8D76-462C-80FD-05E280E734E9}.Unicode Release|x64.ActiveCfg = Unicode Release|x64
 		{0C36A528-8D76-462C-80FD-05E280E734E9}.Unicode Release|x64.Build.0 = Unicode Release|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Debug|Win32.Build.0 = Debug|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Debug|x64.ActiveCfg = Debug|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Debug|x64.Build.0 = Debug|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Release|Win32.ActiveCfg = Release|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Release|Win32.Build.0 = Release|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Release|x64.ActiveCfg = Release|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Release|x64.Build.0 = Release|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Debug|Win32.Build.0 = Debug|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Debug|x64.ActiveCfg = Debug|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Debug|x64.Build.0 = Debug|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Release|Win32.ActiveCfg = Release|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Release|Win32.Build.0 = Release|Win32
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Release|x64.ActiveCfg = Release|x64
+		{FBE04237-9C7B-4973-9C60-505975998B39}.Unicode Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {835FBCEA-1E3A-4DE6-8EA3-42A546D1D38B}
 	EndGlobalSection
 EndGlobal
