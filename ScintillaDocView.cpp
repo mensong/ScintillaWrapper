@@ -1498,7 +1498,7 @@ void CScintillaView::OnStyleNeeded(_Inout_ SCNotification* /*pSCNotification*/)
 }
 
 #pragma warning(suppress: 26440)
-void CScintillaView::OnCharAdded(_Inout_ SCNotification* /*pSCNotification*/)
+void CScintillaView::OnCharAdded(_Inout_ SCNotification* pSCNotification)
 {
   //By default do nothing, derived classes may want to do something
 }

@@ -94,9 +94,15 @@ void CScintillaDemoView::OnInitialUpdate()
 
   CScintillaCtrl& rCtrl = GetCtrl();
 
+  //设置语言和关键字
   //Setup the Lexer
   rCtrl.SetLexer(SCLEX_CPP);
   rCtrl.SetKeyWords(0, g_cppKeyWords);
+  
+  //rCtrl.SetLexer(SCLEX_SQL);
+  //const char* g_szKeywords =
+  //    "select from where update delete insert";
+  //GetCtrl().SetKeyWords(0, g_szKeywords);
 
   //Setup styles
   SetAStyle(STYLE_DEFAULT, RGB(0, 0, 0), RGB(0xff, 0xff, 0xff), 11, "Verdana");
@@ -301,9 +307,34 @@ void CScintillaDemoView::OnUpdateLine(CCmdUI* pCmdUI)
 } 
 
 //Some simple examples of implementing auto completion
-void CScintillaDemoView::OnCharAdded(_Inout_ SCNotification* /*pSCNotification*/)
+void CScintillaDemoView::OnCharAdded(_Inout_ SCNotification* pSCNotification)
 {
   CScintillaCtrl& rCtrl = GetCtrl();
+
+  //自动完成
+  if (pSCNotification->ch == '.')
+  {
+      char word[100]; //保存当前光标下的单词
+      CScintillaCtrl& ctrl = GetCtrl();
+      Sci_Position pos = ctrl.GetCurrentPos();
+	  int startpos = ctrl.WordStartPosition(pos - 1, true);
+	  int endpos = ctrl.WordEndPosition(pos, true);
+      Sci_TextRange tr;
+      tr.chrg.cpMin = startpos;  //设定单词区间，取出单词
+      tr.chrg.cpMax = endpos;
+      tr.lpstrText = word;
+      ctrl.GetTextRange(&tr);
+      if (strcmp(word, "file.") == 0) //输入file.后提示file对象的几个方法
+      {
+          ctrl.AutoCShow(0,
+              "close\n"
+              "eofn\n"
+              "good\n"
+              "open\n"
+              "rdbuf\n"
+              "size");
+      }
+  }
 
   //Get the previous 13 characters and if it is "scintilla is " case insensitive
   //then display a list which allows "very cool", "easy" or the "way cool!!"
